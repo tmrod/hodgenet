@@ -1,0 +1,16 @@
+#+TITLE: Recurrent neural network for flow interpolation
+#+AUTHOR: mitch roddenberry
+#+DATE: <2019-02-09 Sat>
+
+* Overview
+
+This sketch tests out a simple RNN architecture for interpolating flows, with a sequence of shifted signals as input.
+That is, for some signal $x$ and shift operator $S$, the sequence $x, Sx, SSx, SSSx, ...$ is input to the RNN.
+The RNN is trained to produce the true value of $x$ when a partially masked input is produced.
+
+Three different shift operators are used: the hodge laplacian, the signed linegraph adjacency matrix, and a random adjacency matrix.
+It successfully showed the the RNN can properly leverage the graph structure, since the random adjacency matrix performed horribly.
+
+* Operation
+
+Run =make= from the main folder, then view plots/logs in the =results/= folder.
